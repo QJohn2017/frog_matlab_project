@@ -52,13 +52,13 @@ end
 % prepare camera
 hCamera=calllib('StTrgApi', 'StTrg_Open');
 
-dwTransferBitsPerPixel=1;
+dwTransferBitsPerPixel=4;
 dwWidth=1600;
 dwHeight=1200;
-dwBufferSize = dwWidth * dwHeight;
+dwBufferSize = 2 * dwWidth * dwHeight;
 Data=zeros(dwWidth,dwHeight);
 Data=int16(Data);
-pbyteRaw=libpointer('uint8Ptr',Data);
+pbyteRaw=libpointer('uint16Ptr',Data);
 dwNumberOfByteTrans = 0;
 dwNumberOfByteTrans=libpointer('uint32Ptr',dwNumberOfByteTrans);
 dwFrameNo = 0;
